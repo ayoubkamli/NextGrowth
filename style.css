@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    border-collapse:collapse;
+}
+
+th {
+    text-align: left;
+    padding-top: 10px;
+}
+
+table th:last-child {
+    text-align: center;
+}
+
+table td:last-child {
+    text-align: center;
+}
+
+tr {
+    border-bottom: 1pt solid rgb(245, 245, 245);
+}
+
+.table-container {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 30px;
+
+}
