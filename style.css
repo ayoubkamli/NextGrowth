@@ -26,3 +26,25 @@ tr {
     padding: 30px;
 
 }
+
+.state {
+    padding: 4px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.en-validation {
+    background-color: rgb(253,183,77);
+}
+
+.valide {
+    background-color: rgb(92,231,129);
+}
+
+.rejete {
+    background-color: rgb(254,0,0);
+}
