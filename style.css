@@ -20,11 +20,16 @@ tr {
     border-bottom: 1pt solid rgb(245, 245, 245);
 }
 
-.table-container {
+.container {
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    padding: 30px;
+    padding: 10px;
+    margin: 30px;
+}
 
+.button-style {
+    display: flex;
+    justify-content: end;
 }
 
 .state {
@@ -38,13 +43,24 @@ tr {
 }
 
 .en-validation {
-    background-color: rgb(253,183,77);
+    background-color: #FDB64D;
 }
 
 .valide {
-    background-color: rgb(92,231,129);
+    background-color: #5BE881;
 }
 
 .rejete {
-    background-color: rgb(254,0,0);
+    background-color: #FF0000;
+}
+
+button {
+    
+    background-color: #FFAA0B;
+    color: #61605E;
+    padding: 10px 30px 10px 30px;
+    border: 0px;
+    border-radius: 4px;
+    position: relative;
+    
 }
