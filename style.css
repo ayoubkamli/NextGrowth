@@ -64,3 +64,18 @@ button {
     position: relative;
     
 }
+
+.input-div{
+    padding-bottom: 20px;
+    width: 33%;
+}
+
+input, label{
+    width: 90%;
+}
+
+.row-style{
+    
+    display: flex;
+    justify-content: start;
+}

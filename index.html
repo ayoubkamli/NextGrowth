@@ -1,59 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <title>Users list</title>
-</head>
-<body>
-   <div class="container">
-    <table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Users list</title>
+  </head>
+  <body>
+    <div class="container">
+      <table>
         <tr>
-            <th>ID</th>
-            <th>Date de création</th>
-            <th>Etat</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Nom d'untilisateur</th>
-            <th>Matricule</th>
-            <th>Action</th>
+          <th>ID</th>
+          <th>Date de création</th>
+          <th>Etat</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Nom d'untilisateur</th>
+          <th>Matricule</th>
+          <th>Action</th>
         </tr>
         <tr>
-            <td>123456789</td>
-            <td>2021-01-06</td>
-            <td><div class="state en-validation">En validation</div></td>
-            <td>Taha</td>
-            <td>Mohamed</td>
-            <td>mtaha</td>
-            <td>2584</td>
-            <td><i style="font-size:24px" class="fa">&#xf014;</i></td>
+          <td>123456789</td>
+          <td>2021-01-06</td>
+          <td><div class="state en-validation">En validation</div></td>
+          <td>Taha</td>
+          <td>Mohamed</td>
+          <td>mtaha</td>
+          <td>2584</td>
+          <td><i style="font-size: 24px" class="fa">&#xf014;</i></td>
         </tr>
         <tr>
-            <td>123456789</td>
-            <td>2021-01-06</td>
-            <td><div class="state rejete">Rejeté</div></td>
-            <td>Taha</td>
-            <td>Mohamed</td>
-            <td>mtaha</td>
-            <td>2584</td>
-            <td><i style="font-size:24px" class="fa">&#xf014;</i></td>
+          <td>123456789</td>
+          <td>2021-01-06</td>
+          <td><div class="state rejete">Rejeté</div></td>
+          <td>Taha</td>
+          <td>Mohamed</td>
+          <td>mtaha</td>
+          <td>2584</td>
+          <td><i style="font-size: 24px" class="fa">&#xf014;</i></td>
         </tr>
         <tr>
-            <td>123456789</td>
-            <td>2021-01-06</td>
-            <td><div class="state valide">Validé</div></td>
-            <td>Taha</td>
-            <td>Mohamed</td>
-            <td>mtaha</td>
-            <td>2584</td>
-            <td><i style="font-size:24px" class="fa">&#xf014;</i></td>
+          <td>123456789</td>
+          <td>2021-01-06</td>
+          <td><div class="state valide">Validé</div></td>
+          <td>Taha</td>
+          <td>Mohamed</td>
+          <td>mtaha</td>
+          <td>2584</td>
+          <td><i style="font-size: 24px" class="fa">&#xf014;</i></td>
         </tr>
-    </table>
-   </div>
-   <div class="container button-style  ">
-        <button >Ajouter utilisateur</button>
-   </div>
-</body>
+      </table>
+    </div>
+    <div class="container button-style">
+      <button>Ajouter utilisateur</button>
+    </div>
+    <div class="container">
+      <h1>Ajouter d'utilisateur</h1>
+
+      <form action="/index.html">
+        <div class="row-style">
+          <div class="input-div">
+            <label for="name">Nom</label>
+            <br />
+            <input id="" type="text" name="Nom" />
+          </div>
+
+          <div class="input-div">
+            <label for="firstname">Prénom</label>
+            <br />
+            <input id="" type="text" name="firstname" />
+          </div>
+          <div class="input-div">
+            <label for="state">Etat</label>
+            <br />
+            <input id="" type="text" name="state" />
+          </div>
+        </div>
+        <div class="row-style">
+          <div class="input-div">
+            <label for="username">Nom d'utilisateur</label>
+            <br />
+            <input id="" type="text" name="username" />
+          </div>
+          <div class="input-div">
+            <label for="creation-date">Date de création</label>
+            <br />
+            <input id="" type="text" name="creation-date" />
+          </div>
+        </div>
+        <div class="row-style">
+          <div class="input-div">
+            <label for="registration-number">Matricule</label> <br>
+            <input id="" type="text" name="registration-number" />
+          </div>
+        </div>
+      </form>
+
+      <div class="button-style"><button type="submit">Eregistrer</button></div>
+    </div>
+  </body>
 </html>
