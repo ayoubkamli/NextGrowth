@@ -12,55 +12,55 @@
     <title>Users list</title>
   </head>
   <body>
-    <div id="modal" class=" overlay modal">
-        <h1>Ajouter d'utilisateur</h1>
-  
-        <form action="/index.html">
-          <div class="row-style">
-            <div class="input-div">
-              <label for="name">Nom</label>
-              <br />
-              <input id="" type="text" name="Nom" />
-            </div>
-  
-            <div class="input-div">
-              <label for="firstname">Prénom</label>
-              <br />
-              <input id="" type="text" name="firstname" />
-            </div>
-            <div class="input-div">
-              <label for="state">Etat</label>
-              <br />
-              <input id="" type="text" name="state" />
-            </div>
+    <div id="modal" class="overlay modal">
+      <h1>Ajouter d'utilisateur</h1>
+
+      <form action="/index.html">
+        <div class="row-style">
+          <div class="input-div">
+            <label for="name">Nom</label>
+            <br />
+            <input id="" type="text" name="Nom" />
           </div>
-          <div class="row-style">
-            <div class="input-div">
-              <label for="username">Nom d'utilisateur</label>
-              <br />
-              <input id="" type="text" name="username" />
-            </div>
-            <div class="input-div">
-              <label for="creation-date">Date de création</label>
-              <br />
-              <input id="" type="text" name="creation-date" />
-            </div>
+
+          <div class="input-div">
+            <label for="firstname">Prénom</label>
+            <br />
+            <input id="" type="text" name="firstname" />
           </div>
-          <div class="row-style">
-            <div class="input-div">
-              <label for="registration-number">Matricule</label> <br>
-              <input id="" type="text" name="registration-number" />
-            </div>
+          <div class="input-div">
+            <label for="state">Etat</label>
+            <br />
+            <input id="" type="text" name="state" />
           </div>
-          <div class="button-style" ><button type="submit" value="submit">Eregistrer</button></div>
-        </form>
-  
-        
-      </div>
-      <div onclick=showModal() id="backdrop" class="backdrop modal"></div>
+        </div>
+        <div class="row-style">
+          <div class="input-div">
+            <label for="username">Nom d'utilisateur</label>
+            <br />
+            <input id="" type="text" name="username" />
+          </div>
+          <div class="input-div">
+            <label for="creation-date">Date de création</label>
+            <br />
+            <input id="" type="text" name="creation-date" />
+          </div>
+        </div>
+        <div class="row-style">
+          <div class="input-div">
+            <label for="registration-number">Matricule</label> <br />
+            <input id="" type="text" name="registration-number" />
+          </div>
+        </div>
+        <div class="button-style">
+          <button type="button" value="send" onclick=addRow()>Eregistrer</button>
+        </div>
+      </form>
+    </div>
+    <div onclick="showModal()" id="backdrop" class="backdrop modal"></div>
 
     <div class="container">
-      <table>
+      <table id='users'>
         <tr>
           <th>ID</th>
           <th>Date de création</th>
@@ -71,7 +71,7 @@
           <th>Matricule</th>
           <th>Action</th>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>123456789</td>
           <td>2021-01-06</td>
           <td><div class="state en-validation">En validation</div></td>
@@ -100,13 +100,13 @@
           <td>mtaha</td>
           <td>2584</td>
           <td><i style="font-size: 24px" class="fa">&#xf014;</i></td>
-        </tr>
+        </tr> -->
       </table>
     </div>
     <div class="container button-style">
-       <button onclick=showModal() >Ajouter utilisateur</button>
+      <button onclick="showModal()">Ajouter utilisateur</button>
     </div>
-   
+
     <script src="app.js"></script>
   </body>
 </html>
