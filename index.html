@@ -15,23 +15,27 @@
     <div id="modal" class="overlay modal">
       <h1>Ajouter d'utilisateur</h1>
 
-      <form action="/index.html">
+      <form action="/index.html" method="post" id="user-info" >
         <div class="row-style">
           <div class="input-div">
             <label for="name">Nom</label>
             <br />
-            <input id="" type="text" name="Nom" />
+            <input id="name" type="text" name="Nom" />
           </div>
 
           <div class="input-div">
             <label for="firstname">Prénom</label>
             <br />
-            <input id="" type="text" name="firstname" />
+            <input id="firstname" type="text" name="firstname" />
           </div>
           <div class="input-div">
             <label for="state">Etat</label>
             <br />
-            <input id="" type="text" name="state" />
+            <select name="state" id="state">
+              <option value="en-validation">En validation</option>
+              <option value="Validé">Validé</option>
+              <option value="rejete">Rejete</option>
+            </select>
           </div>
         </div>
         <div class="row-style">
@@ -43,17 +47,17 @@
           <div class="input-div">
             <label for="creation-date">Date de création</label>
             <br />
-            <input id="" type="text" name="creation-date" />
+            <input id="" type="date" name="creationdate" />
           </div>
         </div>
         <div class="row-style">
           <div class="input-div">
             <label for="registration-number">Matricule</label> <br />
-            <input id="" type="text" name="registration-number" />
+            <input id="" type="number" name="registrationnumber" />
           </div>
         </div>
         <div class="button-style">
-          <button type="button" value="send" onclick=addRow()>Eregistrer</button>
+          <button type="submit" >Eregistrer</button>
         </div>
       </form>
     </div>

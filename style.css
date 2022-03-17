@@ -70,7 +70,7 @@ button {
     width: 33%;
 }
 
-input, label{
+input, label, select{
     width: 90%;
 }
 

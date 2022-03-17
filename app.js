@@ -55,6 +55,9 @@ const addTable = () => {
 addTable();
 
 const addRow = (e) => {
+
+  var name = document.getElementById('name').value;
+  console.log("name value : " + value);
     var table = document.getElementById('users').getElementsByTagName('tbody')[0];
   let validationClass;
   if (users[1].status === 'Validé') {
@@ -86,3 +89,19 @@ const showModal = () => {
   }
   value = !value;
 };
+
+const form = document.querySelector('#user-info');
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let name = e.target.name.value;
+  let firstName = e.target.firstname.value;
+  let state = e.target.state.value;
+  let username = e.target.username.value;
+  let registrationNumber = e.target.registrationnumber.value;
+  let createdDate = e.target.creationdate.value;
+
+  console.log({name}, {firstName}, {state}, {username}, {username}, {registrationNumber}, {createdDate})
+  
+})
