@@ -50,32 +50,39 @@ const addTable = () => {
       "<td>" + users[index].registrationNumber + "</td>" + 
       "<td><i style='font-size: 24px' class='fa'>&#xf014;</i></td>";
   }
+ 
   console.log(table);
 };
 addTable();
 
-const addRow = (e) => {
+const addRow = ( user) => {
 
-  var name = document.getElementById('name').value;
+  let {id, createdDate, status, name, firstName, username, registrationNumber} = user
+  users.push(user);
+ 
+
+
   console.log("name value : " + value);
     var table = document.getElementById('users').getElementsByTagName('tbody')[0];
   let validationClass;
-  if (users[1].status === 'Validé') {
+  if (status === 'Validé') {
     validationClass = "valide"
-  } else if (users[1].status === 'Rejeté'){
+  } else if (status === 'Rejeté'){
     validationClass = "rejete"
   } else {
     validationClass = "en-validation"
   }
 
-  table.insertRow().innerHTML = "<td>" + users[1].id + "</td>" + 
-      "<td>" + users[1].createdDate.split('T')[0] + "</td>" + 
-      "<td><div class='state " + validationClass + "'>" + users[1].status + "</div></td>" +
-      "<td>" + users[1].lastName + "</td>" + 
-      "<td>" + users[1].firstName + "</td>" + 
-      "<td>" + users[1].userName + "</td>" + 
-      "<td>" + users[1].registrationNumber + "</td>" + 
+  table.insertRow().innerHTML = "<td>" + id + "</td>" + 
+      "<td>" + createdDate.split('T')[0] + "</td>" + 
+      "<td><div class='state " + validationClass + "'>" + status + "</div></td>" +
+      "<td>" + name + "</td>" + 
+      "<td>" + firstName + "</td>" + 
+      "<td>" + username + "</td>" + 
+      "<td>" + registrationNumber + "</td>" + 
       "<td><i style='font-size: 24px' class='fa'>&#xf014;</i></td>";
+
+      console.table(users);
 
 }
 
@@ -94,13 +101,25 @@ const form = document.querySelector('#user-info');
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  let id = Math.floor(Math.random() * 1000000000);
   let name = e.target.name.value;
   let firstName = e.target.firstname.value;
   let state = e.target.state.value;
   let username = e.target.username.value;
   let registrationNumber = e.target.registrationnumber.value;
   let createdDate = e.target.creationdate.value;
+
+  let user =  {
+    id: id,
+    createdDate: createdDate,
+    status: state,
+    firstName: firstName,
+    lastName: name,
+    userName: username,
+    registrationNumber: registrationNumber,
+  }
+
+  addRow(user);
 
   console.log({name}, {firstName}, {state}, {username}, {username}, {registrationNumber}, {createdDate})
   
