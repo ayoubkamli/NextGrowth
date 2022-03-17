@@ -30,31 +30,6 @@ let users = [
   },
 ];
 
-const addTable = () => {
-  var table = document.getElementById('users').getElementsByTagName('tbody')[0];
-  let validationClass;
-  for (let index = 0; index < users.length; index++){
-      if (users[index].status === 'Validé') {
-        validationClass = "valide"
-      } else if (users[index].status === 'Rejeté'){
-        validationClass = "rejete"
-      } else {
-        validationClass = "en-validation"
-      }
-      table.insertRow().innerHTML = "<td>" + users[index].id + "</td>" + 
-      "<td>" + users[index].createdDate.split('T')[0] + "</td>" + 
-      "<td><div class='state " + validationClass + "'>" + users[index].status + "</div></td>" +
-      "<td>" + users[index].lastName + "</td>" + 
-      "<td>" + users[index].firstName + "</td>" + 
-      "<td>" + users[index].userName + "</td>" + 
-      "<td>" + users[index].registrationNumber + "</td>" + 
-      "<td><i style='font-size: 24px' class='fa'>&#xf014;</i></td>";
-  }
- 
-  console.log(table);
-};
-addTable();
-
 const addRow = ( user) => {
 
   let {id, createdDate, status, name, firstName, username, registrationNumber} = user
@@ -85,6 +60,19 @@ const addRow = ( user) => {
       console.table(users);
 
 }
+
+const addTable = () => {
+  var table = document.getElementById('users').getElementsByTagName('tbody')[0];
+  let initialLength = users.length;
+  for (let index = 0; index <initialLength; index++){
+      addRow(users[index]);
+  }
+ 
+  console.log(table);
+};
+addTable();
+
+
 
 const showModal = () => {
   if (value) {
