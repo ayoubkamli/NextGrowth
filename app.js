@@ -30,45 +30,52 @@ let users = [
   },
 ];
 
-const addRow = ( user) => {
+const removeRow = (row, id) => {
+  var td = row.parentNode.parentNode;
+  td.parentNode.removeChild(td);
 
-  let {id, createdDate, status, name, firstName, username, registrationNumber} = user
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].id == id) {
+      users.splice(i, 1);
+      break;
+    }
+  }
+  console.table(users)
+}
+
+const addRow = (user) => {
+
+  let { id, createdDate, status, name, firstName, username, registrationNumber } = user
   users.push(user);
- 
 
-
-  console.log("name value : " + value);
-    var table = document.getElementById('users').getElementsByTagName('tbody')[0];
+  var table = document.getElementById('users').getElementsByTagName('tbody')[0];
   let validationClass;
   if (status === 'Validé') {
     validationClass = "valide"
-  } else if (status === 'Rejeté'){
+  } else if (status === 'Rejeté') {
     validationClass = "rejete"
   } else {
     validationClass = "en-validation"
   }
 
-  table.insertRow().innerHTML = "<td>" + id + "</td>" + 
-      "<td>" + createdDate.split('T')[0] + "</td>" + 
-      "<td><div class='state " + validationClass + "'>" + status + "</div></td>" +
-      "<td>" + name + "</td>" + 
-      "<td>" + firstName + "</td>" + 
-      "<td>" + username + "</td>" + 
-      "<td>" + registrationNumber + "</td>" + 
-      "<td><i style='font-size: 24px' class='fa'>&#xf014;</i></td>";
+  table.insertRow().innerHTML = "<tr><td>" + id + "</td>" +
+    "<td>" + createdDate.split('T')[0] + "</td>" +
+    "<td><div class='state " + validationClass + "'>" + status + "</div></td>" +
+    "<td>" + name + "</td>" +
+    "<td>" + firstName + "</td>" +
+    "<td>" + username + "</td>" +
+    "<td>" + registrationNumber + "</td>" +
+    "<td><button class='delete-button' onclick=removeRow(this," + id + ")><i style='font-size: 24px' class='fa'>&#xf014;</i></button></td></tr>";
 
-      console.table(users);
 
 }
 
 const addTable = () => {
-  var table = document.getElementById('users').getElementsByTagName('tbody')[0];
   let initialLength = users.length;
-  for (let index = 0; index <initialLength; index++){
-      addRow(users[index]);
+  for (let index = 0; index < initialLength; index++) {
+    addRow(users[index]);
   }
- 
-  console.log(table);
+
 };
 addTable();
 
@@ -97,8 +104,8 @@ form.addEventListener("submit", (e) => {
   let registrationNumber = e.target.registrationnumber.value;
   let createdDate = e.target.creationdate.value;
 
-  let user =  {
-    id: id,
+  let user = {
+    id: id.toString(),
     createdDate: createdDate,
     status: state,
     firstName: firstName,
@@ -109,6 +116,5 @@ form.addEventListener("submit", (e) => {
 
   addRow(user);
 
-  console.log({name}, {firstName}, {state}, {username}, {username}, {registrationNumber}, {createdDate})
-  
 })
+

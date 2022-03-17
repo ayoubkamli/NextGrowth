@@ -54,7 +54,7 @@ tr {
     background-color: #FF0000;
 }
 
-button {
+.button-class {
     
     background-color: #FFAA0B;
     color: #61605E;
@@ -106,4 +106,10 @@ input, label, select{
     transform: translate(-50%, -50%);
     z-index: 999;
 
+}
+
+.delete-button {
+    padding: 0;
+border: none;
+background: none;
 }
