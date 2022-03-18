@@ -30,6 +30,8 @@ let users = [
   },
 ];
 
+document.getElementById('date-picker').value = new Date().toISOString().split('T')[0];
+
 const removeRow = (row, id) => {
   var td = row.parentNode.parentNode;
   td.parentNode.removeChild(td);
@@ -108,10 +110,12 @@ form.addEventListener("submit", (e) => {
   let registrationNumber = e.target.registrationnumber.value;
   let createdDate = e.target.creationdate.value ? new Date(e.target.creationdate.value).toISOString() :  new Date().toISOString()  ;
 
-  // let today = new Date().toISOString();
-  //  createdDate ||= today;
-
-  console.log(createdDate);
+  if(!name || !firstName || !state || !userName || !registrationNumber || !createdDate ) {
+    document.getElementById('error-msg').innerText = "*All fields are required";
+    return;
+  } else {
+    document.getElementById('error-msg').innerText = "";
+  }
 
   let user = {
     id: id.toString(),

@@ -113,3 +113,9 @@ input, label, select{
 border: none;
 background: none;
 }
+
+.error-message {
+    color: red;
+    font-size: medium;
+    font-weight: 800;
+}

@@ -18,20 +18,20 @@
       <form action="/index.html" method="post" id="user-info" >
         <div class="row-style">
           <div class="input-div">
-            <label for="name">Nom</label>
+            <label for="name" >Nom</label>
             <br />
-            <input id="name" type="text" name="Nom" />
+            <input id="name" type="text" name="Nom"  required/>
           </div>
 
           <div class="input-div">
             <label for="firstname">Prénom</label>
             <br />
-            <input id="firstname" type="text" name="firstname" />
+            <input id="firstname" type="text" name="firstname" required />
           </div>
           <div class="input-div">
             <label for="state">Etat</label>
             <br />
-            <select name="state" id="state">
+            <select name="state" id="state" required>
               <option value="en-validation">En validation</option>
               <option value="Validé">Validé</option>
               <option value="Rejeté">Rejete</option>
@@ -42,19 +42,22 @@
           <div class="input-div">
             <label for="username">Nom d'utilisateur</label>
             <br />
-            <input id="" type="text" name="userName" />
+            <input id="" type="text" name="userName" required/>
           </div>
           <div class="input-div">
             <label for="creation-date">Date de création</label>
             <br />
-            <input id="" type="date" name="creationdate" />
+            <input id="date-picker" type="date" name="creationdate" required  />
           </div>
         </div>
         <div class="row-style">
           <div class="input-div">
             <label for="registration-number">Matricule</label> <br />
-            <input id="" type="number" name="registrationnumber" />
+            <input id="" type="number" name="registrationnumber" required />
           </div>
+        </div>
+        <div>
+          <p class="error-message" id='error-msg'></p>
         </div>
         <div class="button-style ">
           <button class="button-class" type="submit" >Eregistrer</button>
