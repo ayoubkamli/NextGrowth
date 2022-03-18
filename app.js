@@ -45,9 +45,9 @@ const removeRow = (row, id) => {
 
 const addRow = (user) => {
 
-  let { id, createdDate, status, name, firstName, username, registrationNumber } = user
-  users.push(user);
-
+  let { id, createdDate, status, lastName, firstName, userName, registrationNumber } = user
+  
+  
   var table = document.getElementById('users').getElementsByTagName('tbody')[0];
   let validationClass;
   if (status === 'Validé') {
@@ -61,9 +61,9 @@ const addRow = (user) => {
   table.insertRow().innerHTML = "<tr><td>" + id + "</td>" +
     "<td>" + createdDate.split('T')[0] + "</td>" +
     "<td><div class='state " + validationClass + "'>" + status + "</div></td>" +
-    "<td>" + name + "</td>" +
+    "<td>" + lastName + "</td>" +
     "<td>" + firstName + "</td>" +
-    "<td>" + username + "</td>" +
+    "<td>" + userName + "</td>" +
     "<td>" + registrationNumber + "</td>" +
     "<td><button class='delete-button' onclick=removeRow(this," + id + ")><i style='font-size: 24px' class='fa'>&#xf014;</i></button></td></tr>";
 
@@ -96,13 +96,22 @@ const form = document.querySelector('#user-info');
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  
+  
+
   let id = Math.floor(Math.random() * 1000000000);
   let name = e.target.name.value;
   let firstName = e.target.firstname.value;
   let state = e.target.state.value;
-  let username = e.target.username.value;
+  let userName = e.target.userName.value;
   let registrationNumber = e.target.registrationnumber.value;
-  let createdDate = e.target.creationdate.value;
+  let createdDate = e.target.creationdate.value ? new Date(e.target.creationdate.value).toISOString() :  new Date().toISOString()  ;
+
+  // let today = new Date().toISOString();
+  //  createdDate ||= today;
+
+  console.log(createdDate);
 
   let user = {
     id: id.toString(),
@@ -110,10 +119,12 @@ form.addEventListener("submit", (e) => {
     status: state,
     firstName: firstName,
     lastName: name,
-    userName: username,
+    userName: userName,
     registrationNumber: registrationNumber,
   }
 
+  
+  users.push(user);
   addRow(user);
 
 })
