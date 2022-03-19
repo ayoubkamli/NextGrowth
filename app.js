@@ -124,6 +124,8 @@ const showModal = () => {
   value = !value;
 };
 
+
+
 // Get the information from the html form
 // Simple validation of the inputs
 
@@ -175,4 +177,11 @@ form.addEventListener("submit", (e) => {
 
   users.push(user);
   addRow(user);
+  resetForm();
 });
+
+//reset the form and hide the modal
+const resetForm = () => {
+  form.reset();
+  showModal();
+}
