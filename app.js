@@ -30,8 +30,14 @@ let users = [
   },
 ];
 
-document.getElementById('date-picker').value = new Date().toISOString().split('T')[0];
 
+//Default value of the date is today date
+
+document.getElementById("date-picker").value = new Date()
+  .toISOString()
+  .split("T")[0];
+
+//Function to delete row from the html table
 const removeRow = (row, id) => {
   var td = row.parentNode.parentNode;
   td.parentNode.removeChild(td);
@@ -42,47 +48,71 @@ const removeRow = (row, id) => {
       break;
     }
   }
-  console.table(users)
-}
+  console.table(users);
+};
 
+
+//Function to add row to html table
 const addRow = (user) => {
+  let {
+    id,
+    createdDate,
+    status,
+    lastName,
+    firstName,
+    userName,
+    registrationNumber,
+  } = user;
 
-  let { id, createdDate, status, lastName, firstName, userName, registrationNumber } = user
-  
-  
-  var table = document.getElementById('users').getElementsByTagName('tbody')[0];
+  var table = document.getElementById("users").getElementsByTagName("tbody")[0];
   let validationClass;
-  if (status === 'Validé') {
-    validationClass = "valide"
-  } else if (status === 'Rejeté') {
-    validationClass = "rejete"
+  if (status === "Validé") {
+    validationClass = "valide";
+  } else if (status === "Rejeté") {
+    validationClass = "rejete";
   } else {
-    validationClass = "en-validation"
+    validationClass = "en-validation";
   }
 
-  table.insertRow().innerHTML = "<tr><td>" + id + "</td>" +
-    "<td>" + createdDate.split('T')[0] + "</td>" +
-    "<td><div class='state " + validationClass + "'>" + status + "</div></td>" +
-    "<td>" + lastName + "</td>" +
-    "<td>" + firstName + "</td>" +
-    "<td>" + userName + "</td>" +
-    "<td>" + registrationNumber + "</td>" +
-    "<td><button class='delete-button' onclick=removeRow(this," + id + ")><i style='font-size: 24px' class='fa'>&#xf014;</i></button></td></tr>";
+  table.insertRow().innerHTML =
+    "<tr><td>" +
+    id +
+    "</td>" +
+    "<td>" +
+    createdDate.split("T")[0] +
+    "</td>" +
+    "<td><div class='state " +
+    validationClass +
+    "'>" +
+    status +
+    "</div></td>" +
+    "<td>" +
+    lastName +
+    "</td>" +
+    "<td>" +
+    firstName +
+    "</td>" +
+    "<td>" +
+    userName +
+    "</td>" +
+    "<td>" +
+    registrationNumber +
+    "</td>" +
+    "<td><button class='delete-button' onclick=removeRow(this," +
+    id +
+    ")><i style='font-size: 24px' class='fa'>&#xf014;</i></button></td></tr>";
+};
 
-
-}
-
+//Function to add table from the array
 const addTable = () => {
   let initialLength = users.length;
   for (let index = 0; index < initialLength; index++) {
     addRow(users[index]);
   }
-
 };
 addTable();
 
-
-
+// Function to show/hide modal
 const showModal = () => {
   if (value) {
     document.getElementById("modal").classList.add("modal");
@@ -94,13 +124,12 @@ const showModal = () => {
   value = !value;
 };
 
-const form = document.querySelector('#user-info');
+// Get the information from the html form
+// Simple validation of the inputs
 
+const form = document.querySelector("#user-info");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  
-  
 
   let id = Math.floor(Math.random() * 1000000000);
   let name = e.target.name.value;
@@ -108,13 +137,30 @@ form.addEventListener("submit", (e) => {
   let state = e.target.state.value;
   let userName = e.target.userName.value;
   let registrationNumber = e.target.registrationnumber.value;
-  let createdDate = e.target.creationdate.value ? new Date(e.target.creationdate.value).toISOString() :  new Date().toISOString()  ;
+  let createdDate = e.target.creationdate.value
+    ? new Date(e.target.creationdate.value).toISOString()
+    : new Date().toISOString();
 
-  if(!name || !firstName || !state || !userName || !registrationNumber || !createdDate ) {
-    document.getElementById('error-msg').innerText = "*All fields are required";
+  if (
+    !name ||
+    !firstName ||
+    !state ||
+    !userName ||
+    !registrationNumber ||
+    !createdDate
+  ) {
+    document.getElementById("error-msg").innerText = "*All fields are required";
     return;
   } else {
-    document.getElementById('error-msg').innerText = "";
+    document.getElementById("error-msg").innerText = "";
+  }
+
+  const exist = users.find(user => user.registrationNumber == registrationNumber);
+  if (exist){
+    document.getElementById("error-msg").innerText = "*Registration number already exist";
+    return;
+  } else {
+    document.getElementById("error-msg").innerText = "";
   }
 
   let user = {
@@ -125,11 +171,8 @@ form.addEventListener("submit", (e) => {
     lastName: name,
     userName: userName,
     registrationNumber: registrationNumber,
-  }
+  };
 
-  
   users.push(user);
   addRow(user);
-
-})
-
+});
